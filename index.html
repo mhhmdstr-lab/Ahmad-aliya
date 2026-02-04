@@ -3,86 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Unlimited - Ahmad Aliya</title>
+    <title>Master Unlimited - Ahmad Aliya, ANT I</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f7f9; margin: 0; padding: 20px; color: #2c3e50; line-height: 1.8; }
-        .container { max-width: 800px; margin: auto; background: white; border-radius: 15px; box-shadow: 0 15px 50px rgba(0,0,0,0.1); border-top: 10px solid #002147; }
-        .header { padding: 40px; text-align: center; border-bottom: 1px solid #eee; }
-        /* Foto otomatis mengambil dari profil GitHub */
-        .header img { border-radius: 50%; width: 150px; height: 150px; border: 4px solid #002147; object-fit: cover; margin-bottom: 15px; background: #eee; }
-        .header h1 { margin: 0; font-size: 26px; color: #002147; text-transform: uppercase; letter-spacing: 1px; }
+        :root { 
+            --navy: #002147; 
+            --gold: #c5a059; 
+            --light-bg: #f4f7f9; 
+            --white: #ffffff;
+        }
+        
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            background-color: var(--light-bg); 
+            margin: 0; 
+            padding: 15px; 
+            color: #333; 
+            line-height: 1.6; 
+        }
+
+        .container { 
+            max-width: 850px; 
+            margin: 10px auto; 
+            background: var(--white); 
+            border-radius: 20px; 
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15); 
+            overflow: hidden; 
+            border-top: 12px solid var(--navy); 
+        }
+        
+        .header { 
+            padding: 50px 20px; 
+            text-align: center; 
+            background: linear-gradient(to bottom, #ffffff, #f9f9f9); 
+            border-bottom: 1px solid #eee; 
+        }
+
+        .header img { 
+            border-radius: 50%; 
+            width: 160px; 
+            height: 160px; 
+            border: 5px solid var(--navy); 
+            object-fit: cover; 
+            margin-bottom: 20px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+            background-color: #eee;
+        }
+
+        .header h1 { 
+            margin: 0; 
+            font-size: 28px; 
+            color: var(--navy); 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+        }
+
+        .rank-badge { 
+            display: inline-block; 
+            background: var(--navy); 
+            color: white; 
+            padding: 6px 25px; 
+            border-radius: 50px; 
+            font-weight: bold; 
+            font-size: 14px; 
+            margin-top: 10px; 
+            letter-spacing: 1px;
+        }
         
         .content { padding: 40px; }
-        .short-bio { display: flex; flex-wrap: wrap; gap: 10px; background: #f0f4f8; padding: 20px; border-radius: 10px; margin-bottom: 30px; border-left: 5px solid #002147; }
-        .bio-item { flex: 1 1 200px; font-size: 14px; }
-        .bio-item b { color: #002147; display: block; text-transform: uppercase; font-size: 11px; }
 
-        h3 { color: #002147; text-transform: uppercase; font-size: 16px; border-bottom: 2px solid #002147; padding-bottom: 8px; margin-top: 40px; }
-        .narrative p { text-align: justify; font-size: 16px; margin-bottom: 20px; color: #444; }
-        .highlight { color: #002147; font-weight: bold; }
-        
-        .career-step { margin-bottom: 25px; padding-left: 20px; border-left: 2px solid #002147; }
-        .career-step b { color: #002147; font-size: 16px; }
-        
-        .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .cert-tag { background: #eef2f7; padding: 10px; border-radius: 5px; font-size: 13px; font-weight: 500; border: 1px solid #d1d9e6; }
+        .grid-info { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 15px; 
+            margin-bottom: 35px; 
+        }
 
-        @media (max-width: 600px) { .cert-grid { grid-template-columns: 1fr; } .content { padding: 25px; } }
+        .info-card { 
+            background: #f8fafc; 
+            padding: 15px; 
+            border-radius: 12px; 
+            border-left: 4px solid var(--gold); 
+        }
+
+        .info-card b { 
+            display: block; 
+            font-size: 11px; 
+            color: var(--navy); 
+            text-transform: uppercase; 
+            margin-bottom: 4px;
+        }
+
+        .info-card span { 
+            font-size: 15px; 
+            font-weight: 500; 
+        }
+
+        h3 { 
+            color: var(--navy); 
+            text-transform: uppercase; 
+            font-size: 18px; 
+            border-bottom: 2px solid var(--gold); 
+            padding-bottom: 10px; 
+            margin-top: 40px; 
+            display: flex; 
+            align-items: center; 
+        }
+
+        h3::before { 
+            content: "⚓"; 
+            margin-right: 10px; 
+        }
+        
+        .narrative p { 
+            text-align: justify; 
+            font-size: 16px; 
+            color: #444; 
+            margin-bottom: 20px;
+        }
+        
+        .career-timeline { 
+            position: relative; 
+            padding-left: 30px; 
+            border-left: 2px solid #ddd; 
+            margin-top: 20px;
+        }
+
+        .step { 
+            position: relative; 
+            margin-bottom: 30px; 
+        }
+
+        .step::before { 
+            content: ""; 
+            position: absolute; 
+            left: -39px; 
+            top: 5px; 
+            width: 16px; 
+            height: 16px; 
+            background: var(--navy); 
+            border-radius: 50%; 
+            border: 4px solid white; 
+        }
+
+        .step b { 
+            color: var(--navy); 
+            font-size: 17px; 
+            display: block; 
+        }
+
+        .step i { 
+            font-size: 14px; 
+            color: #666; 
+            display: block; 
+            margin-bottom: 8px; 
+        }
+        
+        .cert-container { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 8px; 
+        }
+
+        .cert-badge { 
+            background: #eef2f7; 
+            padding: 8px 15px; 
+            border-radius: 6px; 
+            font-size: 13px; 
+            font-weight: 600; 
+            border: 1px solid #d1d9e6; 
+            color: var(--navy); 
+        }
+
+        .footer { 
+            text-align: center; 
+            padding: 30px; 
+            background: #f9f9f9; 
+            font-size: 13px; 
+            color: #888; 
+            border-top: 1px solid #eee;
+        }
+
+        @media (max-width: 600px) { 
+            .content { padding: 20px; } 
+            .header img { width: 130px; height: 130px; } 
+            .header h1 { font-size: 22px; }
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <div class="header">
-            <img src="https://github.com/aryansyahsyaputra.png" alt="Ahmad Aliya">
+            <img src="https://github.com/mhhmdstr-lab.png" alt="Ahmad Aliya">
             <h1>Ahmad Aliya</h1>
-            <p style="font-weight: bold; color: #666; margin-top: 10px;">CHIEF OFFICER | ANT I</p>
+            <div class="rank-badge">CHIEF OFFICER | ANT I</div>
+            <p style="margin-top: 15px; color: #555; font-style: italic;">Master Unlimited - Excellence in Maritime Operations</p>
         </div>
 
         <div class="content">
-            <div class="short-bio">
-                <div class="bio-item"><b>Lahir</b>Jakarta, 12 Juli 1996</div>
-                <div class="bio-item"><b>Domisili</b>Jl. Pondok Indah Residence Blok B No. 26</div>
-                <div class="bio-item"><b>Kualifikasi</b>ANT I (Master Unlimited)</div>
-                <div class="bio-item"><b>Instansi</b>PT Pelindo (Persero)</div>
+            <div class="grid-info">
+                <div class="info-card"><b>Tempat, Tgl Lahir</b><span>Jakarta, 12 Juli 1996</span></div>
+                <div class="info-card"><b>Domisili</b><span>Jl. Pondok Indah Residence Blok B No. 26</span></div>
+                <div class="info-card"><b>Pendidikan Tertinggi</b><span>Ahli Nautika Tingkat I (ANT I)</span></div>
+                <div class="info-card"><b>Instansi</b><span>PT Pelindo (Persero)</span></div>
             </div>
 
-            <h3>Profil & Filosofi</h3>
+            <h3>Profil Profesional</h3>
             <div class="narrative">
-                <p>Lahir di Jakarta, saya mendedikasikan hidup sepenuhnya untuk samudera. Bagi saya, laut bukan sekadar tempat bekerja, melainkan medan pembuktian integritas dan ketangguhan mental. Disiplin bahari yang saya miliki kini saya terapkan secara profesional dalam menjaga konektivitas maritim nasional bersama PT Pelindo.</p>
+                <p>Saya adalah seorang Perwira Pelayaran Niaga dengan kualifikasi <strong>Master Unlimited (ANT I)</strong> yang memiliki dedikasi tinggi terhadap operasional kapal dan keselamatan maritim. Dengan pengalaman bertahun-tahun di berbagai lini, mulai dari navigasi internasional hingga operasional khusus di sektor energi, saya menjunjung tinggi disiplin, integritas, dan ketangguhan mental dalam menghadapi dinamika samudera.</p>
+                <p>Sebagai perwira senior, fokus utama saya adalah memastikan manajemen dek yang efisien, kepatuhan ketat terhadap regulasi IMO/SOLAS, serta koordinasi tim yang solid untuk mendukung logistik maritim nasional dan internasional melalui PT Pelindo (Persero).</p>
             </div>
 
-            <h3>Rentang Perjalanan Karier</h3>
-            <div class="career-step">
-                <b>Pembentukan & Pendidikan</b>
-                <p style="margin-top:5px; font-size:15px; color:#555;">Menyelesaikan pendidikan kedinasan nautika dan penyelesaian Praktik Laut sebagai syarat awal kompetensi pelayaran.</p>
-            </div>
-            <div class="career-step">
-                <b>Operational Level</b>
-                <p style="margin-top:5px; font-size:15px; color:#555;">Perwira navigasi rute internasional dengan fokus pada keselamatan pelayaran dan operasional dek di berbagai jenis kapal.</p>
-            </div>
-            <div class="career-step">
-                <b>Offshore Loading Specialist</b>
-                <p style="margin-top:5px; font-size:16px; color:#333;">Bertugas mengendalikan operasional <span class="highlight">bongkar muat minyak hasil pengeboran offshore</span>. Pada periode ini pula saya berhasil meraih kualifikasi tertinggi <span class="highlight">ANT I</span>.</p>
-            </div>
-            <div class="career-step">
-                <b>Sekarang: Master Unlimited</b>
-                <p style="margin-top:5px; font-size:15px; color:#555;">Berdedikasi di PT Pelindo (Persero) dengan kualifikasi Master Unlimited untuk mendukung logistik maritim Indonesia.</p>
+            <h3>Riwayat Karier & Pengalaman</h3>
+            <div class="career-timeline">
+                <div class="step">
+                    <b>Professional Mastery (ANT I)</b>
+                    <i>PT Pelindo (Persero)</i>
+                    <span>Bertanggung jawab atas pengawasan operasional dan navigasi kapal guna mendukung efisiensi logistik nasional di bawah naungan BUMN Pelindo.</span>
+                </div>
+                <div class="step">
+                    <b>Offshore Loading Specialist</b>
+                    <i>Blok Natuna, Kepulauan Riau</i>
+                    <span>Menangani operasional kompleks pemuatan minyak (offshore loading) dan navigasi kapal tangki di wilayah perairan strategis Natuna.</span>
+                </div>
+                <div class="step">
+                    <b>Ocean-Going Navigation Officer</b>
+                    <i>International Routes</i>
+                    <span>Memimpin tugas jaga navigasi pada rute lintas benua, memastikan keamanan kapal, kru, dan muatan sesuai standar maritim internasional.</span>
+                </div>
             </div>
 
             <h3>Inventaris Sertifikasi</h3>
-            <div class="cert-grid">
-                <div class="cert-tag">ANT I (Master Unlimited)</div>
-                <div class="cert-tag">GMDSS Radio Operator</div>
-                <div class="cert-tag">Advanced Fire Fighting (AFF)</div>
-                <div class="cert-tag">Medical Care (MC)</div>
-                <div class="cert-tag">ECDIS & RADAR/ARPA</div>
-                <div class="cert-tag">Ship Security Officer (SSO)</div>
-                <div class="cert-tag">Bridge Resource Management (BRM)</div>
-                <div class="cert-tag">Basic Safety Training (BST)</div>
+            <div class="cert-container">
+                <div class="cert-badge">ANT I (Master Unlimited)</div>
+                <div class="cert-badge">GMDSS General Operator</div>
+                <div class="cert-badge">Bridge Resource Management (BRM)</div>
+                <div class="cert-badge">Advanced Fire Fighting (AFF)</div>
+                <div class="cert-badge">Medical Care (MC)</div>
+                <div class="cert-badge">Ship Security Officer (SSO)</div>
+                <div class="cert-badge">Radar / ARPA / ECDIS Simulator</div>
+                <div class="cert-badge">Basic Safety Training (BST)</div>
             </div>
+        </div>
+
+        <div class="footer">
+            &copy; 2026 Ahmad Aliya, ANT I. Semua Hak Dilindungi.<br>
+            Personal Maritime Profile | Developed via Mobile System Testing.
         </div>
     </div>
 
 </body>
-                                        </html>
+</html>
